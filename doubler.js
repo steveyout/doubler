@@ -258,6 +258,81 @@ bot.hears('💵Balance',ctx => {
   })
 
 })
+//////
+bot.action('💵Balance',ctx => {
+  con.query("SELECT `balance`,`time`,`invested`,`withdrawadd` FROM `account` WHERE `id`="+ctx.from.id,function (err,res) {
+      var btcAmount, currency, rates;
+
+      rates = require('bitcoin-exchange-rates');
+
+      btcAmount = res[0].balance;
+
+      currency = 'USD';
+
+      rates.fromBTC(btcAmount, currency, function (err, rate) {
+         ctx.replyWithHTML('<b>💰Balance: </b>'+res[0].balance+'\n\n<b>📈USD:</b> <i>'+rate+' usd</i>\n\n<b>⚡️Amount to Double: </b>'+res[0].invested+'\n\n<b>📝Account creation:</b>'+res[0].time,Markup
+             .keyboard([
+                 ['🔺Deposit'],
+                 ['🏠Menu']
+
+             ])
+             .resize()
+             .extra())
+             .then(() => {
+                 ctx.replyWithHTML('<b>your withdraw wallet:</b> ' + res[0].withdrawadd, Extra
+                     .HTML()
+                     .markup((m) => m.inlineKeyboard([
+                         m.callbackButton('🖋Set withdraw wallet', '🖋Set withdraw wallet')
+
+                     ], {columns: 1})))
+             })
+
+      });
+      ////////////check transactions
+      ////////////transactions
+      var user = ctx.from.id
+      var sqli = "SELECT depoaddre,txid,ref,id from `account` where `id` = '" + user + "'";
+      con.query(sqli, function (error, res, fields) {
+          if (res[0].depoaddre !== null) {
+              client.getAccount(btc, function (err, account) {
+                  account.getAddress(res[0].depoaddre, function (err, address) {
+                      console.log(err)
+                      address.getTransactions({}, function (err, txs) {
+                          if (txs.length === 0) {
+                              console.log('no transactions today')
+                          } else if (txs[0].id == res[0].txid) {
+                              console.log('transaction already confirmed')
+                          } else if (txs[0].id !== res[0].txid) {
+                              var txid = txs[0].id
+                              var balance = txs[0].amount.amount
+                              var transactions = txs[0].amount.amount
+                              var chatid = ctx.from.id
+                              var sqli = "update `account` set `txid` = '" + txid + "', invested = `invested`+" + balance + ", transactions = `transactions`+" + transactions + " where `id` = '" + chatid + "'";
+                              con.query(sqli, function (err, response) {
+                                  console.log(err)
+                                  var trans = 'https://live.blockcypher.com/btc/address/' + res[0].depoaddre
+                                  var ref = res[0].ref
+                                  var refbonus = balance * 0.30
+                                  var sqla = "update `account` set `balance` = `balance`+" + refbonus + " where `id` = '" + ref + "'";
+                                  con.query(sqla)
+                                  ctx.telegram.sendMessage(res[0].id, 'we have received your deposit of ' + balance + '  BTC️which will be doubled within 12hrs ')
+                                  ctx.telegram.sendMessage(ref, 'you refferal just deposited. ' + refbonus.toFixed(8) + 'BTC has been added to your  balance ')
+                                  ctx.telegram.sendMessage('@btcdoublertransactions', '<b>💰 Deposit</b>  \n<b>🔹 Investor:</b> ' + ctx.from.first_name + '\n<b>💵Amount:</b>' + balance + '\n<a href="' + trans + '">view transaction</a>', Extra
+                                      .HTML())
+                              })
+                          }
+                      })
+                  })
+              })
+          }
+      })
+
+
+
+
+  })
+
+})
 bot.hears('🏠Menu',ctx => {
     ctx.replyWithHTML('<b>Menu</b>', Markup
         .keyboard([
