@@ -1,0 +1,441 @@
+body {
+  padding: 0;
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+
+nav{
+  background-color: white;
+  box-shadow: 3px 3px 3px grey;
+  position: fixed;
+  width: 100%;
+  height:2cm;
+  z-index: 1;
+}
+nav h1{
+  display: inline;
+  position: relative;
+  bottom: 30px;
+  color: green;
+}
+nav li a{
+  text-decoration: none;
+  font-family:"Segoe UI Black";
+}
+nav li{
+  list-style-type: none;
+  float: right;
+  position: relative;
+  bottom: 85px;
+  margin: 5px;
+  padding: 10px;
+  color: #00B7FF;
+  border-radius: 3px;
+
+}
+nav li:hover{
+  background: linear-gradient(to left,#6441A5,#2a0845);
+  cursor: pointer;
+  color: deeppink;
+
+}
+nav .img{
+  float:right;
+  width: 2cm;
+  display: none;
+  height: 2cm;
+}
+.content{
+  z-index: -1;
+  position:relative;
+  display: flex;
+  width: 100%;
+  padding-top: 90px;
+  flex-direction: row;
+  justify-content:space-between;
+
+}
+.content h1{
+  color: #2a0845;
+  text-align: center;
+}
+.para{
+margin-left: 30px;
+  width: 50%;
+}
+.para p{
+  text-justify: newspaper;
+font-family: yout;
+  color: crimson;
+  line-height: 30px;
+  font-weight: bolder;
+  font-size: larger;
+}
+.para2{
+  margin-right: 30px;
+}
+.para2 li{
+  list-style-type:square;
+  color: deeppink;
+  margin-top: 20px;
+  font-family:"Segoe UI Black";
+  font-weight: bolder;
+  font-size: large;
+}
+@font-face {
+  font-family: yout;
+  src: url("/fonts/DAVINA - VINTAGE FONT - PERSONAL USE.otf");
+
+}
+.content2{
+  z-index: -1;
+  position:relative;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content:space-around;
+  background-color:white;
+  margin-top: 30px;
+}
+.h1{
+  color: #2a0845;
+   text-align: center;
+  padding-top: 50px;
+}
+.d{
+padding-top: 20px;
+  margin-right: 30px;
+}
+.d img{
+  width: 2cm;
+  height: 2cm;
+}
+.d p{
+  font-weight: bold;
+  text-align:center;
+  font-family: monospace;
+  color:blueviolet;
+}
+.form{
+  position:relative;
+  background-color:crimson;
+  width: 75%;
+  margin-top: 40px;
+  box-shadow: 3px 3px 3px grey;
+  height: 5cm;
+}
+.form input{
+  margin-top: 30px;
+  height: 1cm;
+  width: 10cm;
+  text-align: center;
+  font-family: "Segoe UI Black";
+
+}
+.form input::placeholder{
+  text-align: center;
+}
+.submit{
+  color: white;
+  border: 2px solid green;
+  border-radius: 3px;
+  background-color: transparent;
+  font-weight: bolder;
+}
+.submit:hover{
+  background-color: green;
+  cursor: pointer;
+}
+.h1stas{
+  text-align: center;
+  position: relative;
+  margin-top: 50px;
+  color: #01142F;
+}
+.stats{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.statscontent{
+  margin-top: 50px;
+
+}
+.statscontent img{
+  width: 2cm;
+  height: 2cm;
+}
+.statscontent p{
+  text-align: center;
+  font-family: "Segoe UI Black";
+  color: #FF6B00;
+}
+.transactions{
+  position: relative;
+  background-color: white;
+  box-shadow: 3px 3px 3px grey;
+
+}
+table{
+  margin-top: 50px;
+  width: 75%;
+}
+table th{
+  background-color: #FFAD32;
+}
+table td{
+ text-align: center;
+  padding: 20px;
+  font-weight: bold;
+  background-color: white;
+
+}
+table td a{
+  text-decoration: none;
+}
+table td img{
+  width: 1cm;
+  height: 1cm;
+  display: inline;
+  float: right;
+}
+#panel, #flip {
+  padding: 5px;
+  text-align: center;
+  background-color:#00CF91;
+  border: solid 1px #FF008B;
+
+}
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+#flip{
+  margin-top: 30px;
+}
+#flip h3{
+  text-align: left;
+}
+#flip img{
+  width: 0.7cm;
+  height: 0.7cm;
+  float: right;
+  position: relative;
+  top: 10px;
+}
+#flip h3:hover,#flip img:hover{
+  cursor: pointer;
+}
+#panel li{
+  font-family:"Segoe UI Black";
+  font-weight: bold;
+  list-style-type: none;
+  margin-top: 30px;
+  color: #FF6B00;
+}
+#panel2, #flip2 {
+  padding: 5px;
+  text-align: center;
+  background-color:#00CF91;
+  border: solid 1px #FF008B;
+
+}
+
+#panel2 {
+  padding: 50px;
+  display: none;
+}
+#flip2{
+  margin-top: 30px;
+}
+#flip2 h3{
+  text-align: left;
+}
+#flip2 img{
+  width: 0.7cm;
+  height: 0.7cm;
+  float: right;
+  position: relative;
+  top: 10px;
+}
+#flip2 h3:hover,#flip2 img:hover{
+  cursor: pointer;
+}
+
+#panel3, #flip3 {
+  padding: 5px;
+  text-align: center;
+  background-color:#00CF91;
+  border: solid 1px #FF008B;
+
+}
+
+#panel3 {
+  padding: 50px;
+  display: none;
+}
+#flip3{
+  margin-top: 30px;
+}
+#flip3 h3{
+  text-align: left;
+}
+#flip3 img{
+  width: 0.7cm;
+  height: 0.7cm;
+  float: right;
+  position: relative;
+  top: 10px;
+}
+#flip3 h3:hover,#flip3 img:hover {
+  cursor: pointer;
+}
+#panel4, #flip4 {
+  padding: 5px;
+  text-align: center;
+  background-color:#00CF91;
+  border: solid 1px #FF008B;
+
+}
+
+#panel4 {
+  padding: 50px;
+  display: none;
+}
+#flip4{
+  margin-top: 30px;
+}
+#flip4 h3{
+  text-align: left;
+}
+#flip4 img{
+  width: 0.7cm;
+  height: 0.7cm;
+  float: right;
+  position: relative;
+  top: 10px;
+}
+#flip4 h3:hover,#flip4 img:hover {
+  cursor: pointer;
+}
+
+#panel5, #flip5 {
+  padding: 5px;
+  text-align: center;
+  background-color:#00CF91;
+  border: solid 1px #FF008B;
+
+}
+
+#panel5 {
+  padding: 50px;
+  display: none;
+}
+#flip5{
+  margin-top: 30px;
+}
+#flip5 h3{
+  text-align: left;
+}
+#flip5 img{
+  width: 0.7cm;
+  height: 0.7cm;
+  float: right;
+  position: relative;
+  top: 10px;
+}
+#flip5 h3:hover,#flip5 img:hover {
+  cursor: pointer;
+}
+#panel6, #flip6 {
+  padding: 5px;
+  text-align: center;
+  background-color:#00CF91;
+  border: solid 1px #FF008B;
+
+}
+
+#panel6 {
+  padding: 50px;
+  display: none;
+}
+#flip6{
+  margin-top: 30px;
+}
+#flip6 h3{
+  text-align: left;
+}
+#flip6 img{
+  width: 0.7cm;
+  height: 0.7cm;
+  float: right;
+  position: relative;
+  top: 10px;
+}
+#flip6 h3:hover,#flip6 img:hover {
+  cursor: pointer;
+}
+footer{
+ background-color: #01142F;
+  position: relative;
+  height: 100px;
+  color: #FF008B;
+  margin-top: 60px;
+}
+footer img{
+  width: 1cm;
+  height: 1cm;
+}
+footer h4{
+  text-align: center;
+}
+@media only screen and (max-width: 768px) {
+  nav{
+    overflow: visible;
+  }
+  nav .img{
+    display: block;
+  }
+  nav img:hover{
+    cursor: pointer;
+  }
+  nav ul{
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+    position:relative;
+margin-top: -2%;
+    height: 10cm;
+    box-shadow: 3px 3px 3px grey;
+    display: none;
+  }
+  nav li {
+    width: 100%;
+    clear: both;
+    position: relative;
+    top:10%;
+
+
+  }
+  .content{
+    flex-direction: column;
+    text-align: center;
+  }
+  .para{
+    width: 100%;
+  }
+
+  .content2{
+    flex-direction: column;
+  }
+  .form{
+    width:95%;
+  }
+  .stats{
+    flex-direction: column;
+
+  }
+}
